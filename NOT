@@ -1,0 +1,70 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000002346e59ec40 .scope module, "NOT_tb" "NOT_tb" 2 3;
+ .timescale 0 0;
+v000002346e59d4c0_0 .var "A", 0 0;
+v000002346e623250_0 .net "Y", 0 0, L_000002346e59ef60;  1 drivers
+S_000002346e59edd0 .scope module, "Instance0" "NOT_2_gate_level" 2 8, 3 1 0, S_000002346e59ec40;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Y";
+    .port_info 1 /INPUT 1 "A";
+L_000002346e59ef60 .functor NOT 1, v000002346e59d4c0_0, C4<0>, C4<0>, C4<0>;
+v000002346e623030_0 .net "A", 0 0, v000002346e59d4c0_0;  1 drivers
+v000002346e622db0_0 .net "Y", 0 0, L_000002346e59ef60;  alias, 1 drivers
+    .scope S_000002346e59ec40;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002346e59d4c0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002346e59d4c0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002346e59d4c0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002346e59d4c0_0, 0, 1;
+    %delay 1, 0;
+    %end;
+    .thread T_0;
+    .scope S_000002346e59ec40;
+T_1 ;
+    %vpi_call 2 19 "$monitor", "%t | A = %d | Y = %d", $time, v000002346e59d4c0_0, v000002346e623250_0 {0 0 0};
+    %vpi_call 2 20 "$dumpfile", "NOTgate.vcd" {0 0 0};
+    %vpi_call 2 21 "$dumpvars" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "NOT_tb.v";
+    "./NOT_2_gate_level.v";
+
+`include "NOT_2_gate_level.v"
+
+module NOT_tb;
+  reg A;
+  wire Y;
+
+  NOT_2_gate_level Instance0 (Y, A);
+
+  initial begin
+    A = 0;
+    #1 A = 1;
+    #1;
+  end
+
+  initial begin
+    $monitor("%t | A = %d | Y = %d", $time, A, Y);
+    $dumpfile("NOTgate.vcd");
+    $dumpvars();
+  end
+endmodule
