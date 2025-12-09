@@ -1,0 +1,60 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000002cf5ebb70e0 .scope module, "XOR_gate_level_tb" "XOR_gate_level_tb" 2 3;
+ .timescale 0 0;
+v000002cf5ebb7270_0 .var "A", 0 0;
+v000002cf5ebbadd0_0 .var "B", 0 0;
+v000002cf5ebbae70_0 .net "Y", 0 0, L_000002cf5ebb7310;  1 drivers
+S_000002cf5ec05a80 .scope module, "Instance0" "XOR_gate_level" 2 7, 3 1 0, S_000002cf5ebb70e0;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Y";
+    .port_info 1 /INPUT 1 "A";
+    .port_info 2 /INPUT 1 "B";
+L_000002cf5ebb7310 .functor XOR 1, v000002cf5ebb7270_0, v000002cf5ebbadd0_0, C4<0>, C4<0>;
+v000002cf5ebd3250_0 .net "A", 0 0, v000002cf5ebb7270_0;  1 drivers
+v000002cf5ebd3030_0 .net "B", 0 0, v000002cf5ebbadd0_0;  1 drivers
+v000002cf5ebd2db0_0 .net "Y", 0 0, L_000002cf5ebb7310;  alias, 1 drivers
+    .scope S_000002cf5ebb70e0;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002cf5ebb7270_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002cf5ebbadd0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002cf5ebb7270_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002cf5ebbadd0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002cf5ebb7270_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002cf5ebbadd0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002cf5ebb7270_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002cf5ebbadd0_0, 0, 1;
+    %delay 1, 0;
+    %end;
+    .thread T_0;
+    .scope S_000002cf5ebb70e0;
+T_1 ;
+    %vpi_call 2 18 "$monitor", "%t | A = %d | B = %d | Y = %d", $time, v000002cf5ebb7270_0, v000002cf5ebbadd0_0, v000002cf5ebbae70_0 {0 0 0};
+    %vpi_call 2 19 "$dumpfile", "XOR_gate_level.vcd" {0 0 0};
+    %vpi_call 2 20 "$dumpvars" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "XOR_gate_level_tb.v";
+    "./XOR_gate_level.v";
