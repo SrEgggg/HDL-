@@ -1,0 +1,64 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000269a3d96180 .scope module, "XOR_AND_DF" "XOR_AND_DF" 2 2;
+ .timescale 0 0;
+v00000269a3d96540_0 .var "A", 0 0;
+v00000269a3d49000_0 .var "B", 0 0;
+v00000269a3d490a0_0 .net "C", 0 0, L_00000269a3d63260;  1 drivers
+v00000269a3d492e0_0 .net "S", 0 0, L_00000269a3d4ef00;  1 drivers
+S_00000269a3d96310 .scope module, "Instance0" "XOR_AND_DFF" 2 5, 3 1 0, S_00000269a3d96180;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "C";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+L_00000269a3d4ef00 .functor XOR 1, v00000269a3d96540_0, v00000269a3d49000_0, C4<0>, C4<0>;
+L_00000269a3d63260 .functor AND 1, v00000269a3d96540_0, v00000269a3d49000_0, C4<1>, C4<1>;
+v00000269a3d633c0_0 .net "A", 0 0, v00000269a3d96540_0;  1 drivers
+v00000269a3d62dc0_0 .net "B", 0 0, v00000269a3d49000_0;  1 drivers
+v00000269a3d4ee60_0 .net "C", 0 0, L_00000269a3d63260;  alias, 1 drivers
+v00000269a3d964a0_0 .net "S", 0 0, L_00000269a3d4ef00;  alias, 1 drivers
+    .scope S_00000269a3d96180;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000269a3d96540_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000269a3d49000_0, 0, 1;
+    %delay 2, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000269a3d96540_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000269a3d49000_0, 0, 1;
+    %delay 2, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000269a3d96540_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000269a3d49000_0, 0, 1;
+    %delay 2, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000269a3d96540_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000269a3d49000_0, 0, 1;
+    %delay 2, 0;
+    %end;
+    .thread T_0;
+    .scope S_00000269a3d96180;
+T_1 ;
+    %vpi_call 2 15 "$monitor", "%t | A = %d | B = %d | C = %d | S = %d", $time, v00000269a3d96540_0, v00000269a3d49000_0, v00000269a3d490a0_0, v00000269a3d492e0_0 {0 0 0};
+    %vpi_call 2 16 "$dumpfile", "XOR_AND.vcd" {0 0 0};
+    %vpi_call 2 17 "$dumpvars" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "XOR_AND_DF.v";
+    "./XOR_AND_DFF.v";
