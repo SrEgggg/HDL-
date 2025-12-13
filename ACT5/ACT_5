@@ -1,0 +1,109 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000186ca376a10 .scope module, "ACT_5_GL_tb" "ACT_5_GL_tb" 2 2;
+ .timescale 0 0;
+v00000186ca365b40_0 .var "A", 0 0;
+v00000186ca365be0_0 .var "B", 0 0;
+v00000186ca365c80_0 .var "C", 0 0;
+v00000186ca3744b0_0 .net "Cout", 0 0, L_00000186ca365130;  1 drivers
+v00000186ca3c2340_0 .net "S", 0 0, L_00000186ca364f70;  1 drivers
+S_00000186ca376ba0 .scope module, "Instance0" "ACT_5_GL" 2 5, 3 1 0, S_00000186ca376a10;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "S";
+    .port_info 1 /OUTPUT 1 "Cout";
+    .port_info 2 /INPUT 1 "A";
+    .port_info 3 /INPUT 1 "B";
+    .port_info 4 /INPUT 1 "C";
+L_00000186ca365280 .functor XOR 1, v00000186ca365b40_0, v00000186ca365be0_0, C4<0>, C4<0>;
+L_00000186ca364f70 .functor XOR 1, L_00000186ca365280, v00000186ca365c80_0, C4<0>, C4<0>;
+L_00000186ca365360 .functor AND 1, L_00000186ca365280, v00000186ca365c80_0, C4<1>, C4<1>;
+L_00000186ca3654b0 .functor AND 1, v00000186ca365b40_0, v00000186ca365be0_0, C4<1>, C4<1>;
+L_00000186ca365130 .functor OR 1, L_00000186ca365360, L_00000186ca3654b0, C4<0>, C4<0>;
+v00000186ca4a9e40_0 .net "A", 0 0, v00000186ca365b40_0;  1 drivers
+v00000186ca342db0_0 .net "B", 0 0, v00000186ca365be0_0;  1 drivers
+v00000186ca376d30_0 .net "C", 0 0, v00000186ca365c80_0;  1 drivers
+v00000186ca376dd0_0 .net "Cout", 0 0, L_00000186ca365130;  alias, 1 drivers
+v00000186ca3658c0_0 .net "S", 0 0, L_00000186ca364f70;  alias, 1 drivers
+v00000186ca365960_0 .net "w_WIRE_1", 0 0, L_00000186ca365280;  1 drivers
+v00000186ca365a00_0 .net "w_WIRE_2", 0 0, L_00000186ca365360;  1 drivers
+v00000186ca365aa0_0 .net "w_WIRE_3", 0 0, L_00000186ca3654b0;  1 drivers
+    .scope S_00000186ca376a10;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000186ca365b40_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000186ca365be0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000186ca365c80_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000186ca365b40_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000186ca365be0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000186ca365c80_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000186ca365b40_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000186ca365be0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000186ca365c80_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000186ca365b40_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000186ca365be0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000186ca365c80_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000186ca365b40_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000186ca365be0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000186ca365c80_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000186ca365b40_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000186ca365be0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000186ca365c80_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000186ca365b40_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000186ca365be0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000186ca365c80_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000186ca365b40_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000186ca365be0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000186ca365c80_0, 0, 1;
+    %delay 1, 0;
+    %end;
+    .thread T_0;
+    .scope S_00000186ca376a10;
+T_1 ;
+    %vpi_call 2 20 "$monitor", "%t | A = %d | B = %d | C = %d | Cout = %d | S = %d", $time, v00000186ca365b40_0, v00000186ca365be0_0, v00000186ca365c80_0, v00000186ca3744b0_0, v00000186ca3c2340_0 {0 0 0};
+    %vpi_call 2 21 "$dumpfile", "ACT_5_GL.vcd" {0 0 0};
+    %vpi_call 2 22 "$dumpvars" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "ACT_5_GL_tb.v";
+    "./ACT_5_GL.v";
