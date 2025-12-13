@@ -1,0 +1,84 @@
+$date
+	Tue Oct 28 09:36:52 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module ACT6_GL_tb $end
+$var wire 1 ! D $end
+$var wire 1 " B $end
+$var reg 1 # X $end
+$var reg 1 $ Y $end
+$var reg 1 % Z $end
+$scope module Instance0 $end
+$var wire 1 & ANDw3 $end
+$var wire 1 ' ANDw5 $end
+$var wire 1 " B $end
+$var wire 1 ! D $end
+$var wire 1 ( NOTw2 $end
+$var wire 1 ) NOTw4 $end
+$var wire 1 # X $end
+$var wire 1 * XORw1 $end
+$var wire 1 $ Y $end
+$var wire 1 % Z $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0*
+1)
+1(
+0'
+0&
+0%
+0$
+0#
+0"
+0!
+$end
+#1
+1"
+1!
+1'
+1%
+#2
+0)
+1*
+1&
+1!
+0'
+1$
+0%
+#3
+0!
+1%
+#4
+0"
+0&
+0(
+1!
+0$
+1#
+0%
+#5
+0!
+1%
+#6
+1)
+0*
+0!
+1$
+0%
+#7
+1"
+1!
+1'
+1%
+#8
