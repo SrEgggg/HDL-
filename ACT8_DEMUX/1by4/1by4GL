@@ -1,0 +1,85 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000218d02e6b40 .scope module, "ACT8_1by4_GL_tb" "ACT8_1by4_GL_tb" 2 3;
+ .timescale 0 0;
+v00000218d0332320_0 .var "D", 0 0;
+v00000218d03323c0_0 .var "S0", 0 0;
+v00000218d02e4210_0 .var "S1", 0 0;
+v00000218d02e4530_0 .net "Y0", 0 0, L_00000218d02e4990;  1 drivers
+v00000218d02e3f90_0 .net "Y1", 0 0, L_00000218d02e4920;  1 drivers
+v00000218d02e45d0_0 .net "Y2", 0 0, L_00000218d02e48b0;  1 drivers
+v00000218d02e3810_0 .net "Y3", 0 0, L_00000218d022af60;  1 drivers
+v00000218d02e4670_0 .var/i "i", 31 0;
+v00000218d02e4030_0 .var "vec", 5 0;
+S_00000218d02e6cd0 .scope module, "pins" "ACT8_1by4_GL" 2 9, 3 1 0, S_00000218d02e6b40;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "Y0";
+    .port_info 1 /OUTPUT 1 "Y1";
+    .port_info 2 /OUTPUT 1 "Y2";
+    .port_info 3 /OUTPUT 1 "Y3";
+    .port_info 4 /INPUT 1 "S1";
+    .port_info 5 /INPUT 1 "S0";
+    .port_info 6 /INPUT 1 "D";
+L_00000218d022af60 .functor AND 1, v00000218d02e4210_0, v00000218d03323c0_0, v00000218d0332320_0, C4<1>;
+L_00000218d02e47d0 .functor NOT 1, v00000218d02e4210_0, C4<0>, C4<0>, C4<0>;
+L_00000218d02e4840 .functor NOT 1, v00000218d03323c0_0, C4<0>, C4<0>, C4<0>;
+L_00000218d02e48b0 .functor AND 1, v00000218d02e4210_0, L_00000218d02e4840, v00000218d0332320_0, C4<1>;
+L_00000218d02e4920 .functor AND 1, L_00000218d02e47d0, v00000218d03323c0_0, v00000218d0332320_0, C4<1>;
+L_00000218d02e4990 .functor AND 1, L_00000218d02e47d0, L_00000218d02e4840, v00000218d0332320_0, C4<1>;
+v00000218d02b3030_0 .net "D", 0 0, v00000218d0332320_0;  1 drivers
+v00000218d02b2db0_0 .net "S0", 0 0, v00000218d03323c0_0;  1 drivers
+v00000218d02e6e60_0 .net "S1", 0 0, v00000218d02e4210_0;  1 drivers
+v00000218d02e6f00_0 .net "W1not", 0 0, L_00000218d02e47d0;  1 drivers
+v00000218d0332000_0 .net "W2not", 0 0, L_00000218d02e4840;  1 drivers
+v00000218d03320a0_0 .net "Y0", 0 0, L_00000218d02e4990;  alias, 1 drivers
+v00000218d0332140_0 .net "Y1", 0 0, L_00000218d02e4920;  alias, 1 drivers
+v00000218d03321e0_0 .net "Y2", 0 0, L_00000218d02e48b0;  alias, 1 drivers
+v00000218d0332280_0 .net "Y3", 0 0, L_00000218d022af60;  alias, 1 drivers
+    .scope S_00000218d02e6b40;
+T_0 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v00000218d02e4670_0, 0, 32;
+T_0.0 ;
+    %load/vec4 v00000218d02e4670_0;
+    %cmpi/s 8, 0, 32;
+    %jmp/0xz T_0.1, 5;
+    %load/vec4 v00000218d02e4670_0;
+    %pad/s 6;
+    %store/vec4 v00000218d02e4030_0, 0, 6;
+    %load/vec4 v00000218d02e4030_0;
+    %pad/u 3;
+    %split/vec4 1;
+    %store/vec4 v00000218d0332320_0, 0, 1;
+    %split/vec4 1;
+    %store/vec4 v00000218d03323c0_0, 0, 1;
+    %store/vec4 v00000218d02e4210_0, 0, 1;
+    %delay 1, 0;
+    %load/vec4 v00000218d02e4670_0;
+    %addi 1, 0, 32;
+    %store/vec4 v00000218d02e4670_0, 0, 32;
+    %jmp T_0.0;
+T_0.1 ;
+    %delay 1, 0;
+    %vpi_call 2 18 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_00000218d02e6b40;
+T_1 ;
+    %vpi_call 2 21 "$monitor", "%t |  S1=%d | S0=%d | D =%d | Y0=%d | Y1=%d | Y2=%d | Y3=%d", $time, v00000218d02e4210_0, v00000218d03323c0_0, v00000218d0332320_0, v00000218d02e4530_0, v00000218d02e3f90_0, v00000218d02e45d0_0, v00000218d02e3810_0 {0 0 0};
+    %vpi_call 2 22 "$dumpfile", "gate.vcd" {0 0 0};
+    %vpi_call 2 23 "$dumpvars" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "ACT8_1by4_GL_tb.v";
+    "./ACT8_1by4_GL.v";
